@@ -1,0 +1,14 @@
+body{
+padding:10%;
+font-size:1rem;
+background-image:url(images.png);
+background-repeat:no-repeat;
+background-size:contain;
+}
+div{
+padding:0%;
+margine:0%;
+height:125vh;
+weight:100vw;
+background-color:red;
+}
