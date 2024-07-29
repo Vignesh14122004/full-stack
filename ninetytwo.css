@@ -1,0 +1,33 @@
+#ch1{
+padding:5%;
+background-image:url(download5.jpg);
+background-repeat:no-repeat;
+background-size:1500px;
+background-color:rgba(255,255,255,0.2);
+height:100vh;
+}
+#ch2{
+padding:5%;
+background-image:url(download6.jfif);
+background-repeat:no-repeat;
+background-size:cover;
+background-color:rgba(255,255,255,0.2);
+height:100vh;
+}
+#ch3{
+padding:5%;
+background-image:url(download7.jfif);
+background-repeat:no-repeat;
+background-size:cover;
+background-color:rgba(255,255,255,0.2);
+height:100vh;
+}
+#ch1 img{
+margin-left:1000px;
+}
+#ch2 img{
+margin-left:1000px;
+}
+#ch3 img{
+margin-left:1000px;
+}
