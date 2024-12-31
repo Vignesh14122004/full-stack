@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Examples in One Page</title>
+    <script>
+        // 1. Using setTimeout for delayed message
+        function delayedMessage() {
+            setTimeout(() => {
+                console.log("setTimeout: This message appears after 2 seconds.");
+            }, 2000); // 2000ms = 2 seconds
+        }
+
+        // 2. Using async/await with fetch simulation
+        async function fetchData() {
+            const data = await new Promise((resolve) => {
+                setTimeout(() => {
+                    console.log("async/await: Data fetched after 3 seconds.");
+                    resolve({ id: 1, name: "Sample Data" });
+                }, 3000); // Simulating network delay of 3 seconds
+            });
+            console.log("Fetched Data:", data);
+            return data;
+        }
+
+        // 3. Using a callback function
+        function fetchWithCallback(callback) {
+            setTimeout(() => {
+                const data = { id: 2, name: "Callback Data" };
+                console.log("Callback: Data fetched with callback after 1 second.");
+                callback(data); // Executing the callback with data
+            }, 1000); // 1 second delay
+        }
+
+        function processCallbackData(data) {
+            console.log("Processing callback data:", data);
+        }
+
+        // 4. Using setInterval to repeat a message every 4 seconds
+        function repeatedMessage() {
+            setInterval(() => {
+                console.log("setInterval: This message repeats every 4 seconds.");
+            }, 4000); // 4000ms = 4 seconds
+        }
+
+        // 5. Using Promises for an async operation
+        function asyncOperation() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const success = true;
+                    if (success) {
+                        resolve("Promise: Operation succeeded after 2.5 seconds.");
+                    } else {
+                        reject("Promise: Operation failed!");
+                    }
+                }, 2500); // Simulated operation delay of 2.5 seconds
+            });
+        }
+
+        // 6. Using Promise.all to run multiple promises in parallel
+        function runAllPromises() {
+            const promise1 = new Promise((resolve) => setTimeout(() => resolve("Promise 1 resolved after 1 second"), 1000));
+            const promise2 = new Promise((resolve) => setTimeout(() => resolve("Promise 2 resolved after 1.5 seconds"), 1500));
+            const promise3 = new Promise((resolve) => setTimeout(() => resolve("Promise 3 resolved after 2 seconds"), 2000));
+
+            Promise.all([promise1, promise2, promise3]).then((results) => {
+                console.log("Promise.all: All promises resolved:", results);
+            }).catch((error) => {
+                console.error("Promise.all: One of the promises failed:", error);
+            });
+        }
+
+        // Running all the functions
+        window.onload = function() {
+            // Running setTimeout
+            delayedMessage();
+
+            // Running async/await
+            fetchData();
+
+            // Running callback
+            fetchWithCallback(processCallbackData);
+
+            // Running setInterval
+            repeatedMessage();
+
+            // Running Promises
+            asyncOperation().then((message) => {
+                console.log(message);
+            }).catch((error) => {
+                console.error(error);
+            });
+
+            // Running Promise.all
+            runAllPromises();
+        };
+    </script>
+</head>
+<body>
+    <h1>Async JavaScript Examples</h1>
+    <p>Check the console for output from various async patterns.</p>
+</body>
+</html>

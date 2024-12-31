@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced JavaScript Example</title>
+ 
+</head>
+<body>
+
+    <h1>Advanced JavaScript Example</h1>
+
+    <p id="clock"></p>
+
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+    <button onclick="openNewWindow()">Open New Window</button>
+    <button onclick="stopClock()">Stop Clock</button>
+
+    <div id="output"></div>
+
+    <script>
+        // Example of an alert
+        function showAlert() {
+            alert('This is a simple alert!');
+        }
+
+        // Example of a confirm dialog
+        function showConfirm() {
+            var userConfirmed = confirm('Do you want to proceed?');
+            if (userConfirmed) {
+                document.getElementById('output').innerText = 'User confirmed!';
+            } else {
+                document.getElementById('output').innerText = 'User canceled!';
+            }
+        }
+
+        // Example of a prompt
+        function showPrompt() {
+            var userInput = prompt('Please enter your name:', 'Guest');
+            if (userInput !== null) {
+                document.getElementById('output').innerText = 'Hello, ' + userInput + '!';
+            }
+        }
+
+        // Example of opening a new window
+        function openNewWindow() {
+            window.open('https://www.google.com', '_blank', 'width=800,height=600');
+        }
+
+        // Example of using setInterval for a real-time clock
+       var clockInterval = setInterval(function() {
+            var now = new Date();
+            var timeString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
+            document.getElementById('clock').innerText = 'Current Time: ' + timeString;
+        }, 1000);
+
+        // Example of stopping the clock
+        function stopClock() {
+            clearInterval(clockInterval);
+            document.getElementById('clock').innerText = 'Clock stopped!';
+        }
+
+        // Example of setTimeout to delay an action
+       setTimeout(function() {
+            alert('This alert is shown after 5 seconds!');
+        }, 5000);
+    </script>
+
+</body>
+</html>
